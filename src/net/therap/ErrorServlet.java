@@ -2,22 +2,35 @@ package net.therap;
 
 import java.io.IOException;
 
-import javax.servlet.GenericServlet;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/error")
-public class ErrorServlet extends GenericServlet{
+public class ErrorServlet extends HttpServlet{
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Override
-	public void service(ServletRequest arg0, ServletResponse arg1)
+	protected void doGet(HttpServletRequest req, HttpServletResponse response)
 			throws ServletException, IOException {
-		arg1.getWriter().println("<h1>An Error Has Occoured</h1>");
+		
+		response.getWriter().write(
+				  "<!DOCTYPE html>"
+				+ "<html>"
+				+ "<body>"	
+			);
+		response.getWriter().write(
+				 "<h1>An Error Has Occured</h1>"
+			);
+		response.getWriter().write(
+				  "</body>"
+				+ "</html>"
+			);
 	}
+
 	
 	
 }
