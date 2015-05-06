@@ -17,6 +17,9 @@ public class ShowProductServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		String id = request.getParameter("id");
+		
+		
 		response.getWriter().write(
 					  "<!DOCTYPE html>"
 					+ "<html>"
@@ -26,24 +29,35 @@ public class ShowProductServlet extends HttpServlet {
 					"<h1>These are our amaging products</h1>"
 				);
 		
-		response.getWriter().write(
-					  "<div>"
-					+ " <h2>Product 1</h2>"
-					+ " <h3>Price 100$</h3>"
-					+ "</div>"
-					+ "<div>"
-				);
-		response.getWriter().write(
-					  " <h2>Product 2</h2>"
-					+ " <h3>Price 50$</h3>"
-					+ "</div>"
-				);
-		response.getWriter().write(
-					  "<div>"
-					+ " <h2>Product 3</h2>"
-					+ " <h3>Price 150$</h3>"
-					+ "</div>"
-				);
+		if(id == null || id.equals("1")) {
+
+			response.getWriter().write(
+						  "<div>"
+						+ " <h2>Product 1</h2>"
+						+ " <h3>Price 100$</h3>"
+						+ "</div>"
+						+ "<div>"
+					);
+		}
+		
+		if(id == null || id.equals("2")) {
+
+			response.getWriter().write(
+						  " <h2>Product 2</h2>"
+						+ " <h3>Price 50$</h3>"
+						+ "</div>"
+					);
+		}
+		
+		if(id == null || id.equals("3")) {
+
+			response.getWriter().write(
+						  "<div>"
+						+ " <h2>Product 3</h2>"
+						+ " <h3>Price 150$</h3>"
+						+ "</div>"
+					);
+		}
 		response.getWriter().write(
 					  "</body>"
 					+ "</html>"
